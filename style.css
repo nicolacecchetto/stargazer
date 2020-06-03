@@ -1,0 +1,46 @@
+.bg-1 {
+    background: url('/stargazer/images/bg1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #ffffff;
+}
+
+.title {
+    border-bottom-color: #ffffff;
+    border-bottom-width: 5px;
+    border-bottom-style: double;
+}
+
+.elementbg {
+    background-color: #050515;
+    opacity: 0.75;
+    border: #ffffff;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.footerleft {
+    text-align: left;
+    width: max-content;
+}
+
+.footerright {
+    text-align: right;
+    width: max-content;
+}
+
+.btn-group-justified {
+    border-bottom-color: #ffffff;
+    border-bottom-width: 5px;
+    border-bottom-style: double;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    background-color: midnightblue;
+}
