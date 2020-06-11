@@ -13,18 +13,6 @@ class stargazer_model extends CI_Model
         return $deg;
     }
 
-    function rev2($deg, $max, $min, $change)
-    {
-        while($deg < $min || $deg > $max)
-        {
-            if($deg > $max)
-                $deg = $deg - $change;
-            else if($deg < $min)
-                $deg = $deg + $change;
-        }
-        return $deg;
-    }
-
     function calcE($E0, $E1, $e, $M)
     {
         $diff = abs($E0 - $E1);
@@ -392,6 +380,16 @@ class stargazer_model extends CI_Model
             $planet->Decl = $this->dec2deg($planet->Decl);
             $planet->azimuth = $this->dec2degAz($planet->azimuth);
             $planet->altitude = $this->dec2deg($planet->altitude);
+
+            $planet->N = $this->dec2deg($planet->N);
+            $planet->i = $this->dec2deg($planet->i);
+            $planet->w = $this->dec2deg($planet->w);
+            if($planet->Name == "Moon")
+                $planet->a .= " Earth radiuses";
+            else
+                $planet->a .= " AU";
+            $planet->e = round($planet->e, 3);
+            $planet->M = $this->dec2deg($planet->M);
         }
     }
 

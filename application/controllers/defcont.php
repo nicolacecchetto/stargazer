@@ -3,11 +3,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class defcont extends CI_Controller {
 
+	public function index()
+	{
+		$this->session->objects = null;
+		$this->session->compass = array("N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW");
+		if(is_null($this->session->lat)||is_null($this->session->long))
+		{
+			$this->formlatlong();
+		}
+		else
+		{
+			$this->planetsnow();
+		}
+	}
+
 	public function formlatlong()
 	{
 		$data["title"] = "StarGazer : Insert your Coordinates";
 		$this->load->view("head", $data);
 		$this->load->view("formlatlong");
+		$this->load->view("end");
 	}
 
 	public function formdate()
@@ -15,29 +30,7 @@ class defcont extends CI_Controller {
 		$data["title"] = "StarGazer : Insert a Date";
 		$this->load->view("head", $data);
 		$this->load->view("formd");
-	}
-
-	public function index()
-	{
-		$this->session->objects = null;
-		$this->session->compass = array("N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW");
-		$this->formlatlong();
-	}
-
-	public function mainnow()
-	{
-		$data["title"] = "StarGazer : Position Right Now";
-		$this->load->view("head", $data);
-		$this->load->view("buttons");
-		$this->load->view('main');
-	}
-	
-	public function maindate()
-	{
-		$data["title"] = "StarGazer : ".$this->session->lastTimeStamp;
-		$this->load->view("head", $data);
-		$this->load->view("buttons");
-		$this->load->view('main');
+		$this->load->view("end");
 	}
 
 	public function planetsnow()
@@ -115,6 +108,26 @@ class defcont extends CI_Controller {
 		$this->session->objects = $array;
 	}
 
+	public function mainnow()
+	{
+		$data["title"] = "StarGazer : Position Right Now";
+		$this->load->view("head", $data);
+		$this->load->view("buttons");
+		$this->load->view('main');
+		$this->load->view("footer");
+		$this->load->view("end");
+	}
+	
+	public function maindate()
+	{
+		$data["title"] = "StarGazer : ".$this->session->lastTimeStamp;
+		$this->load->view("head", $data);
+		$this->load->view("buttons");
+		$this->load->view('main');
+		$this->load->view("footer");
+		$this->load->view("end");
+	}
+
 	function orbelem()
 	{
 		$ID = $this->input->get('id');
@@ -127,6 +140,8 @@ class defcont extends CI_Controller {
 				$this->load->view("head", $data);
 				$this->load->view("buttons");
 				$this->load->view("orbelem", $data2);
+				$this->load->view("footer");
+				$this->load->view("end");
 				break;
 			}
 		}

@@ -7,40 +7,28 @@
             		<?php endforeach ?>
 				</tr>
 				<tr>
-					<th> <a href="https://en.wikipedia.org/wiki/Right_ascension" target="_blank" data-toggle="tooltip" data-placement="right" title="RA"> RA </a> </th>
+					<th> <a href="https://en.wikipedia.org/wiki/Right_ascension" target="_blank" data-toggle="tooltip" data-placement="right" title="RA on Wikipedia"> RA </a> </th>
 					<?php foreach($this->session->objects as $object): ?>
 						<td id="<?php echo $object->Name?>RA"><?php echo $object->RA?></td>
             		<?php endforeach ?>
 				</tr>
 				<tr>
-					<th> <a href="https://en.wikipedia.org/wiki/Declination" target="_blank" data-toggle="tooltip" data-placement="right" title="Declination"> Declination </a> </th>
+					<th> <a href="https://en.wikipedia.org/wiki/Declination" target="_blank" data-toggle="tooltip" data-placement="right" title="Declination on Wikipedia"> Declination </a> </th>
 					<?php foreach($this->session->objects as $object): ?>
 						<td id="<?php echo $object->Name?>Declination"><?php echo $object->Decl?></td>
             		<?php endforeach ?>
 				</tr>
 				<tr>
-					<th> <a href="https://en.wikipedia.org/wiki/Azimuth" target="_blank" data-toggle="tooltip" data-placement="right" title="Azimuth"> Azimuth </a> </th>
+					<th> <a href="https://en.wikipedia.org/wiki/Azimuth" target="_blank" data-toggle="tooltip" data-placement="right" title="Azimuth on Wikipedia"> Azimuth </a> </th>
 					<?php foreach($this->session->objects as $object): ?>
 						<td id="<?php echo $object->Name?>Azimuth"><?php echo $object->azimuth?></td>
             		<?php endforeach ?>
 				</tr>
 				<tr>
-					<th> <a href="#" target="_blank" data-toggle="tooltip" data-placement="right" title="Altitude"> Altitude </a> </th>
+					<th> <a href="https://en.wikipedia.org/wiki/Horizontal_coordinate_system#:~:text=Altitude%20(alt.)%2C%20sometimes,be%20used%20instead%20of%20altitude." target="_blank" data-toggle="tooltip" data-placement="right" title="Altitude on Wikipedia"> Altitude </a> </th>
 					<?php foreach($this->session->objects as $object): ?>
 						<td id="<?php echo $object->Name?>Altitude"><?php echo $object->altitude?></td>
             		<?php endforeach ?>
 				</tr>
 			</table>
-			<div class="row footer">
-				<div class="col-sm-6 footerleft">
-					<p> Last Update <?php echo $this->session->lastTimeStamp ?> </p>
-					<p> Latitude : <?php echo $this->session->lat ?>, Longitude : <?php echo $this->session->long ?> </p>
-					<p> <?= anchor('defcont/planetsnow', 'Refresh Data') ?> </p>
-				</div>
-				<div class="col-sm-6 footerright">
-					<p> Made by Nicola Cecchetto </p>
-				</div>
-			</div>
 		</div>
-	</body>
-</html>
